@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDwhVentas.Data", "LoadDwhVentas.Data\LoadDwhVentas.Data.csproj", "{AA07DDD3-7323-42F3-88C0-8B37BDA1C3BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDwhVentas.WorkerService", "LoadDwhVentas.WorkerService\LoadDwhVentas.WorkerService.csproj", "{6B777B1B-15EA-4E04-9B39-FC6F2DFB9653}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA07DDD3-7323-42F3-88C0-8B37BDA1C3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA07DDD3-7323-42F3-88C0-8B37BDA1C3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA07DDD3-7323-42F3-88C0-8B37BDA1C3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA07DDD3-7323-42F3-88C0-8B37BDA1C3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B777B1B-15EA-4E04-9B39-FC6F2DFB9653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B777B1B-15EA-4E04-9B39-FC6F2DFB9653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B777B1B-15EA-4E04-9B39-FC6F2DFB9653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B777B1B-15EA-4E04-9B39-FC6F2DFB9653}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37D51086-2A78-4D84-BBF5-B93540227CD3}
+	EndGlobalSection
+EndGlobal
