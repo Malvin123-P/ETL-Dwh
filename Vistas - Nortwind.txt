@@ -1,0 +1,79 @@
+USE [Northwind]
+GO
+
+/****** Object:  View [dbo].[ViewsOrder]    Script Date: 28/11/2024 12:41:36 a. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[ViewsOrder]
+AS
+  SELECT 
+    O.[OrderID],
+    C.[CustomerID],
+    C.CompanyName,
+    E.[EmployeeID],
+    E.FirstName + ' ' + E.LastName AS EmployeeName,
+    S.ShipperID,
+    S.[CompanyName] AS ShipperCompanyName,
+    P.ProductID,
+    P.[ProductName],
+    COUNT(D.ProductID) AS ProductCount,
+    O.ShipCity,
+    O.OrderDate,
+    YEAR(O.OrderDate) AS Year,
+    MONTH(O.OrderDate) AS Month,
+    COUNT(DISTINCT O.OrderID) AS TotalOrders,
+    SUM(D.UnitPrice * D.Quantity) AS TotalSold
+  FROM 
+    [Northwind].[dbo].[Order Details] AS D
+  INNER JOIN 
+    Orders AS O ON O.OrderID = D.OrderID
+  INNER JOIN 
+    Customers AS C ON C.CustomerID = O.CustomerID
+  INNER JOIN 
+    Employees AS E ON E.EmployeeID = O.EmployeeID
+  INNER JOIN 
+    Shippers AS S ON S.ShipperID = O.ShipVia
+  INNER JOIN 
+    Products AS P ON P.ProductID = D.ProductID
+  GROUP BY 
+    O.[OrderID], 
+    C.[CustomerID], 
+    C.CompanyName, 
+    E.[EmployeeID], 
+    E.FirstName, 
+    E.LastName, 
+    S.ShipperID, 
+    S.[CompanyName], 
+    O.ShipCity, 
+    O.OrderDate,
+	P.ProductID,
+	P.ProductName
+   
+   
+GO
+
+/****** Object:  View [dbo].[ViewsServerdCustomer]    Script Date: 28/11/2024 12:42:00 a. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[ViewsServerdCustomer]
+AS
+SELECT 
+    e.EmployeeID,
+    e.FirstName + ' ' + e.LastName AS FullName,
+    COUNT(c.CustomerID) AS TotalCustomers
+FROM 
+    Employees e
+LEFT JOIN 
+    Orders c ON e.EmployeeID = c.EmployeeID
+GROUP BY 
+    e.EmployeeID, e.FirstName, e.LastName;
+GO
+
